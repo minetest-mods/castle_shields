@@ -3,10 +3,13 @@ castle_shields.register_shield = function(name, desc, background_color, foregrou
 	local tile_side = "castle_shield_"..background_color..".png"
 	local tile_front = "castle_shield_"..background_color..".png^(castle_shield_"..foreground_color..
 			".png^[mask:castle_shield_mask_"..mask..".png)"
+	local wield_front = "castle_shield_"..background_color..".png^(castle_shield_"..foreground_color..
+		".png^[mask:castle_shield_mask_"..mask..".png)^[mask:castle_shield_overlay.png"
 
 	minetest.register_node(minetest.get_current_modname()..":"..name, {
 		description = desc,
 		tiles = {tile_side, tile_side, tile_side, tile_side, "castle_shield_back.png", tile_front},
+		wield_image = wield_front,
 		drawtype = "nodebox",
 		paramtype2 = "facedir",
 		paramtype = "light",
